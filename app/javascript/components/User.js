@@ -152,20 +152,21 @@ export default class User extends Component {
               {user.email}
             </span>
             {
-              current_user.id === user.id && (
+              current_user.id === user.id ? (
                 <Button
                   size="sm"
                   className='start-record'
                   onClick={this.handleStartRecord}
                 > Create Sleep Record </Button>
+              ) : (
+                <FollowButton
+                  currentUserId={current_user.id}
+                  relationId={user.relationId}
+                  userId={user.id}
+                  getUsersInfo={this.getUsersInfo}
+                />
               )
             }
-            <FollowButton
-              currentUserId={current_user.id}
-              relationId={user.relationId}
-              userId={user.id}
-              getUsersInfo={this.getUsersInfo}
-            />
             <hr/>
             {
               !error

@@ -1,5 +1,5 @@
 class Api::V1::SleepRecordsController < ApplicationController
-  before_action: :find_user, only: :index
+  before_action :find_user, only: :index
   def create
     @sleep_record = SleepRecord.new(user_id: params[:user_id])
     @sleep_record.save!
@@ -8,7 +8,7 @@ class Api::V1::SleepRecordsController < ApplicationController
   end
 
   def index
-    return render json: @user.sleep_records.order(created_at: :asc) unless current_user == @user
+    return render json: @user.sleep_records.order(created_at: :asc) if current_user.id == @user.id
 
     if !current_user.following?(@user)
       render json: { error: 'Not friend' }, status: 401

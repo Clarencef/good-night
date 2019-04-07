@@ -10,7 +10,7 @@ class Api::V1::RelationshipsController < ApplicationController
     followed_user = Relationship.find(params[:id]).followed
     current_user.unfollow(followed_user)
 
-    render json: Relationship.followed(current_user)
+    render json: current_user.active_relationships
   end
 
 private
