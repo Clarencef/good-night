@@ -1,24 +1,52 @@
-# README
+# Good night
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An system allows user to record their sleep time.
 
-Things you may want to cover:
+### Prerequisites
 
-* Ruby version
+Ruby version: 2.5.1
 
-* System dependencies
+Rails version: 5.2.2
 
-* Configuration
+### Installing & Getting Started
 
-* Database creation
+Install Bundler to manager dependencies: ` gem install bundler `
 
-* Database initialization
+Run the installers:
+```
+$ bundle install
+$ rails webpacker:install       # OR (on rails version < 5.0) rake webpacker:install
+$ rails webpacker:install:react # OR (on rails version < 5.0) rake webpacker:install:react
+$ rails generate react:install
+```
 
-* How to run the test suite
+Setup the database:
+```
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Start the application:
+```
+$ bundle exec rails s
+$ bin/webpack-dev-server
+```
 
-* Deployment instructions
+## User Story
 
-* ...
+1. Clock In operation, and return all clocked-in times, ordered by created time.
+2. Users can follow and unfollow other users.
+3. See the sleep records over the past week for their friends, ordered by the length of their sleep.
+
+## Built With
+
+* [webpacker](https://github.com/rails/webpacker) - Easy to use the JavaScript pre-processor and bundler webpack 4.x.x+ to manage application-like JavaScript in Rails.
+* [react-rails](https://github.com/reactjs/react-rails) - A flexible tool to use React with Rails.
+* [axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js.
+* [react-bootstrap](https://github.com/react-bootstrap/react-bootstrap) - Bootstrap 4 components built with React.
+* [date-fns](https://github.com/date-fns/date-fns) - Simple and consistent toolset for manipulating JavaScript dates in a browser & Node.js.
+
+
+## Authors
+
+**Albert Fang**
